@@ -1,4 +1,4 @@
-# PathSim 🚀  
+# PathSim
 PathSim is a 2D based robotic environment simulation. It has been create for learning purposes, specifically in relation to a course im taking called **Motion Planning and Path Planning**. It has been created as a lighter and simpler alternative to **WeBots**
 
 ## Overview  
