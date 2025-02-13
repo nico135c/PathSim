@@ -1,0 +1,38 @@
+import pygame
+
+class Simulator:
+    def __init__(self, params):
+        # WORLD PARAMETERS
+        self.start, self.goal, self.obstacles, self.world_size = params
+
+        #PYGAME STUFF
+        pygame.init()
+        self.screen = pygame.display.set_mode((self.world_size))
+        pygame.display.set_caption('PathSim')
+        pygame.display.set_icon(pygame.image.load('assets/pathsim_icon.png'))
+        self.clock = pygame.time.Clock()
+
+        #SIMULATION SETTINGS
+        self.fps = 30
+
+        #COLORS
+        self.white = (255,255,255)
+
+    def run(self):
+        running = True
+        while running:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    running = False
+
+            self.screen.fill((self.white))
+
+            pygame.draw.circle(self.screen, (0, 0, 255), self.start, 10) #START POINT
+            pygame.draw.circle(self.screen, (0, 255, 0), self.goal, 10) #GOAL POINT
+
+            for obstacle in self.obstacles:
+                pygame.draw.polygon(self.screen, (255, 0, 0), obstacle.vertices)
+
+            pygame.display.flip()
+            self.clock.tick(self.fps)
+        pygame.quit()
