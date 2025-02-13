@@ -1,0 +1,36 @@
+# PyCharm project files
+.idea/
+
+# Virtual environments
+venv/
+env/
+
+# Byte-compiled / cached files
+__pycache__/
+*.py[cod]
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Logs & system files
+*.log
+.DS_Store
+Thumbs.db
+
+# Jupyter Notebook checkpoints (hvis du bruger notebooks)
+.ipynb_checkpoints/
+
+# Ignore pytest and coverage reports
+htmlcov/
+.coverage
+.cache/
+
+# Ignore VSCode settings (hvis du også bruger det)
+.vscode/
+
+# Ignore large data files (hvis relevant)
+*.csv
+*.sqlite
+*.db
