@@ -1,9 +1,13 @@
 import pygame
+from core.robot import Robot
 
 class Simulator:
     def __init__(self, params):
         # WORLD PARAMETERS
         self.start, self.goal, self.obstacles, self.world_size = params
+
+        #INITIATING ROBOT
+        self.robot = Robot(self.start)
 
         #PYGAME STUFF
         pygame.init()
@@ -27,8 +31,8 @@ class Simulator:
 
             self.screen.fill((self.white))
 
-            pygame.draw.circle(self.screen, (0, 0, 255), self.start, 10) #START POINT
             pygame.draw.circle(self.screen, (0, 255, 0), self.goal, 10) #GOAL POINT
+            pygame.draw.polygon(self.screen, (0,0,255), self.robot.get_triangle())
 
             for obstacle in self.obstacles:
                 pygame.draw.polygon(self.screen, (255, 0, 0), obstacle.vertices)
