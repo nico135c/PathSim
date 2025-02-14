@@ -1,5 +1,9 @@
 import pygame
+
+from core.debug import manual_control
 from core.robot import Robot
+from core.algorithms import main
+import core.debug
 
 class Simulator:
     def __init__(self, params):
@@ -25,6 +29,9 @@ class Simulator:
     def run(self):
         running = True
         while running:
+            main(self.start, self.goal, self.obstacles, self.world_size, self.robot)
+
+            manual_control(self.robot,self.obstacles)
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False
